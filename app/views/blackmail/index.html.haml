@@ -1,0 +1,12 @@
+- @blackmail.each do |blackmail|
+  .blackmail{id: "b-#{blackmail.id}"}
+    .header
+      .name #{blackmail.victim_name}
+      .time
+        %span.countdown{data: {'countdown-seconds' => blackmail.expired_at.to_i}}
+      .title #{blackmail.title}
+    .main
+      = image_tag image_blackmail_path(blackmail), class: 'countdown', data: {'countdown-seconds'=>blackmail.expired_at.to_i}, style: 'visibility: hidden'
+      %br
+      .description #{blackmail.description}
+    .footer
